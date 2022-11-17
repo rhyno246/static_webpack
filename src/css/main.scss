@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url('../fonts/Montserrat-Regular.ttf'); 
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Montserrat-Regular, sans-serif;
+    font-weight: 400;
+    background: url('../img/slide-01.jpg') no-repeat;
+    background-size: cover;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  

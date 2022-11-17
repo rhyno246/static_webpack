@@ -3,7 +3,13 @@ import "slick-carousel";
 import '../css/index.scss';
 import '../vendor/radio.css';
 
+// const image = require('../img/slide-01.jpg')
 
+// let img = new Image();
+// img.src  = image;
+
+
+// $('body').append(img);
 
 
 $(".carousel").slick({

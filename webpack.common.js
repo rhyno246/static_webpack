@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageMinimizerWebpackPlugin = require("image-minimizer-webpack-plugin");
-const { extendDefaultPlugins } = require("svgo");
 const { ProvidePlugin } = require("webpack");
 const json5 = require("json5");
 
@@ -20,7 +19,7 @@ module.exports = {
   },
   output: {
     path: `${__dirname}/dist`,
-    clean: true,
+    clean: true
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -38,23 +37,6 @@ module.exports = {
           ["gifsicle", { interlaced: true }],
           ["jpegtran", { progressive: true }],
           ["optipng", { optimizationLevel: 5 }],
-          [
-            "svgo",
-            {
-              plugins: extendDefaultPlugins([
-                {
-                  name: "removeViewBox",
-                  active: false,
-                },
-                {
-                  name: "addAttributesToSVGElement",
-                  params: {
-                    attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
-                  },
-                },
-              ]),
-            },
-          ],
         ],
       },
     }),
@@ -72,7 +54,9 @@ module.exports = {
 
       {
         test: /.s?css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader, "css-loader", "sass-loader",
+        ]
       },
       {
         test: /\.js$/,

@@ -7,27 +7,36 @@ const json5 = require("json5");
 module.exports = {
   performance: { hints: false },
   entry: {
-    main: {
-      import: "./src/js/main.js",
-      filename: "js/main.[contenthash].js",
-    },
     index: {
       import: "./src/js/index.js",
       filename: "js/index.[contenthash].js",
-      dependOn: "main",
     },
+    about : {
+      import: "./src/js/about.js",
+      filename: "js/about.[contenthash].js",
+    }
   },
   output: {
     path: `${__dirname}/dist`,
     clean: true
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      inject: "body",
-      chunks: ["main", "index"],
-      filename: "index.html",
-    }),
+    new HtmlWebpackPlugin(
+      {
+        template: "./src/index.html",
+        inject: "body",
+        chunks: ["index"],
+        filename: "index.html",
+      }
+    ),
+    new HtmlWebpackPlugin(
+      {
+        template: "./src/about.html",
+        inject: "body",
+        chunks: ["about"],
+        filename: "about.html",
+      }
+    ),
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash].css",
     }),
